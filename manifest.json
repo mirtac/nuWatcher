@@ -1,0 +1,17 @@
+{
+  "name": "nudb",
+  "description": "change url will console.",
+  "version": "0.0.1",
+  "background": {
+    "scripts": ["popup.js"]
+  },
+  "permissions": [
+    "tabs", "notifications", "http://*/*", "https://*/*", "identity"
+  ],
+  "browser_action": {
+      "default_title": "nudb_test",
+      "default_icon": "icon.png"
+  },
+  "options_page": "popup.html",
+  "manifest_version": 2
+}
