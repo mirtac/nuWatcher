@@ -82,5 +82,16 @@ function Wsclient(wsURL, wsProtocol, callback) {
 	ws.onerror = function(e) {
 		console.log("something wrong in ws");
 	};
-
+	//TODO auth
+	/*
+	$.get(WWW_HOST+"/ws/users/me", function(data) {
+                //console.log('DATA',data);
+                //chrome.tabs.sendMessage(targetTab.id, {type: 'id', data: data});
+                if(!=null){
+                	                ws.send(JSON.stringify(auth_data));
+                }
+                else{
+                	turn login page by chrome.tabs.create();
+                }
+                });*/
 }
