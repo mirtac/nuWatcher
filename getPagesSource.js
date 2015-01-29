@@ -32,3 +32,22 @@ chrome.extension.sendMessage({
     action: "getSource",
     source: DOMtoString(document)
 });
+$( document ).on( "click", function( event ) {//can use .off to remove
+                $( event.target ).closest( "*" ).toggleClass( "hilight" );
+                ary=[];
+                var str="";
+                parents = $( event.target ).parents().andSelf();
+                for(var i=0;i<parents.length;i++){
+                        str = (parents[i].nodeName);
+                        if(parents[i].className){
+                                str+= "  "+(parents[i].className);
+                                str = str.replace(/\s+/g, ".");
+                        }
+                        ary.push(str);
+                }
+                str=ary.join(">");
+                //$(str).css("background:yellow");
+                console.log("["+str+"]");
+                console.log(window.jQuery);
+
+                });

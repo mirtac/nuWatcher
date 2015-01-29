@@ -10,8 +10,35 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	 chrome.tabs.update(tab.id, {
 	 url : action_url
 	 });*/
-	webs = new Wsclient("ws://140.123.101.185:5566", "test");
+	//TODO
+	/*will put to  plugin turn on*/
+	//webs = new Wsclient("ws://140.123.101.185:5566", "test");
+	/*end*/
+	/*will put to tab close */
 
+chrome.tabs.executeScript(tab.id, { file: "jquery.js" }, function() {
+    chrome.tabs.executeScript(tab.id, {
+ 	 	file: "getPagesSource.js"
+ 	 	}, function() { 	 		
+ 	 		// If you try and inject into an extensions page or the webstore/NTP you'll get an error    
+ 	 		if (chrome.extension.lastError) {
+ 	 			      console.log( 'There was an error injecting script : \n' + chrome.extension.lastError.message);
+ 	 			      }
+ 	 		else{
+ 	 			console.log("noerror");
+ 	 		}
+		});
+});
+
+ 	 
+
+	/*end*/
+
+});
+chrome.extension.onMessage.addListener(function(request, sender) {
+  if (request.action == "getSource") {
+    //console.log(request.source);
+  }
 });
 function getmesage(opt) {//should be websocket.onmessage
 	chrome.notifications.create("id" + Math.random(), opt, function(id) {
